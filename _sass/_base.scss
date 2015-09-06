@@ -12,7 +12,7 @@
  2. General - Setting up some base styles
  ========================================================================== */
 
- html {
+html {
   height: 100%;
   max-height: 100%;
   font-size: 62.5%;
@@ -23,10 +23,10 @@ body {
   height: 100%;
   max-height: 100%;
   font-family: $primary_font_stack;
-  font-size: 1.8rem;
-  line-height: 1.4em;
-  color: $color_warm_slate;
-  @include font-smoothing();
+  font-size: 2.1rem;
+  line-height: 1.44em;
+  color: $color_light_copy;
+  background-color: rgb(243, 247, 233);
 }
 
 ::-moz-selection { background: #D6EDFF; }
@@ -39,7 +39,7 @@ h4, h5, h6 {
   -ms-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
   -o-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
   font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
-  color: $color_warm_slate;
+  color: $color_light_copy;
   line-height: 1.15em;
   margin: 0 0 0.3em 0;
   font-family: $primary_font_stack;
@@ -70,14 +70,14 @@ h6 {
 }
 
 a {
-  color: $color_energy_pink;
+  color: $color_hyperlink;
   transition: color ease 0.3s;
   text-decoration: none;
   outline: none;
 }
 
 a:hover {
-  color: $color_violet;
+  color: white;
   text-decoration: underline;
 }
 

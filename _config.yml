@@ -1,0 +1,12 @@
+# Site settings
+title: ""
+description: ""
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://paulmederos.com" # the base hostname & protocol for your site
+twitter_username: pvm
+github_username:  pvmederos
+
+# Build settings
+markdown: kramdown
+
+# http://rauchg.com/slackin/

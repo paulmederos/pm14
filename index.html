@@ -13,21 +13,33 @@ layout: default
     </div>
   </section>
   <section class="all-of-my-writing-stuffs-go-here">
-    <div class="constrain-me-please">
-      <div class="offset">
-        <h2>Writings</h2>
-        <p class="subhead">Design, psychology, nurturing companies, and other such madness, as it delights oneself.</p>
+    <div class="protection-against-circle-plague">
+      <div class="constrain-me-please">
+        <div class="offset">
+          <h2>Writings</h2>
+          <p class="subhead">Design, psychology, nurturing companies, and other such madness, as it delights oneself.</p>
         </div>
-    </div>
-    <ul class="omg-so-many-posts">
-        <li class="the-shizzzzzzz">
-          <a href="#" class="post-title">Making the switch from graphic to UX/UI design</a>
-          <div class="a-tale-of-two-parts">
-            <p class="part-one-the-date">Jan 2015</p>
-            <p class="part-two-the-CONTENT-all-hail-the-content-snippet">Today I met a graphic designer looking to make the switch to “UI/UX design.” They certainly weren’t the first, nor will they be the last; I found myself answering the same questions I’ve answered in hundreds of previous meet-ups.</p>
-            <a href="#" class="part-three-waiiiiit-a-sec">Keep on reading...</a>
-          </div>
-        </li>
+      </div>
+
+      <!-- list all the posts here, for fun -->
+      <ul class="omg-so-many-posts">
+        {% for post in site.posts %}
+          {% if post.teaser != blank %}
+            <li class="the-shizzzzzzz">
+              <a href="{{ post.url | prepend: site.baseurl }}" class="post-title">
+                {{ post.title }}
+              </a>
+              <div class="a-tale-of-two-parts">
+                <p class="part-one-the-date">{{ post.date || date: '%b. %Y' }}</p>
+                <p class="part-two-the-CONTENT-all-hail-the-content-snippet">{{ post.teaser }}</p>
+                <a href="{{ post.url | prepend: site.baseurl }}" class="part-three-waiiiiit-a-sec">Keep on reading</a>
+              </div>
+            </li>
+          {% endif %}
+        {% endfor %}
       </ul>
+      <!-- end the posts. Just stop it. Damn. -->
+    </div>
+    <div class="the-circle-zombie-plague_SAVE_USSSSSSSS"></div>
   </section>
 </main>

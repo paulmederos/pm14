@@ -56,7 +56,6 @@ body {
 
   .protection-against-circle-plague { position: relative; z-index:2;}
   .the-circle-zombie-plague_SAVE_USSSSSSSS { 
-    position: absolute; top:0; left:0; width:100%; height:100%; z-index: 1;
     background-image: url('/images/circles.png');
     background-repeat: repeat;
     opacity: .05;
@@ -64,6 +63,15 @@ body {
 
   h2 { font-size: 4.2rem; font-weight: 500; margin:0; color:rgba(0,0,0,.4);}
   .subhead { font-size:1.6rem; }
+}
+
+.overlay {
+  position: absolute; 
+  top:0; 
+  left:0; 
+  width:100%; 
+  height:100%; 
+  z-index: 1;
 }
 
 .omg-so-many-posts {
@@ -132,7 +140,35 @@ body {
   }
 }
 
+.the-illuminating-portfolio {
+  background-color: #00FDA9;
+  position: relative;
 
+  .constrain-me-please { display: block; position: relative; z-index: 2; }
+}
+
+.portfolio-button-yaaasssssss {
+  color:#F07F65;
+  border:3px solid #F07F65;
+  text-align: center;
+  padding:1em 2em;
+  border-radius: 16px;
+  font-weight: 600;
+  margin: 0 auto;
+  display: block;
+  @include transition;
+
+  &:hover {
+    border-color: $color_hyperlink;
+    @include transition;
+  }
+}
+
+
+
+/*  ========================
+     Posts
+    ======================== */
 
 .a-post-oh-my {
   position: relative;
@@ -175,5 +211,12 @@ body {
     text-decoration: none;
     &:hover{ color: $color_hyperlink; border-bottom: 1px solid $color_hyperlink; }
   }
+}
+
+.star-power {
+  background-image: url('/images/stars.png');
+  background-repeat: repeat;
+  background-size:cover;
+  opacity: .05;
 }
 

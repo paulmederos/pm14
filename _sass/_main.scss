@@ -31,15 +31,82 @@
   margin:0 auto; 
   padding: 12rem 7.2rem;
   box-sizing: border-box;
-  text-align: justify;
 
   @include mq-personal {
-    padding:4rem 3.6rem;
+    padding:6rem 3.6rem;
+  }
+
+  .offset {
+    max-width:308px;
+    margin:0 auto;
+    @include mq-personal { width:100%; max-width: 100%;}
   }
 }
 
 .all-of-my-writing-stuffs-go-here {
   background-color: #6166EC;
+
+  h2 { font-size: 4.2rem; font-weight: 500; margin:0; color:rgba(0,0,0,.4);}
+  .subhead { font-size:1.6rem; }
 }
 
+.omg-so-many-posts {
+  list-style: none;
+  margin:0;
+  padding:0 3rem 12rem;
+
+  .post-title {
+    display: block;
+    font-size: 4.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: white;
+    margin-bottom:4.2rem;
+
+    @include mq-personal { font-size: 3.6rem;}
+
+    &:hover { 
+      color: $color_hyperlink;
+    }
+
+    &:after {
+      content: "";
+      position: relative;
+      top:2rem;
+      display:block;
+      width:20rem;
+      height:6px;
+      background-color:yellow;
+    }
+  }
+}
+
+.a-tale-of-two-parts {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .part-one-the-date {
+    float:left;
+    width:20%;
+    color: #4245A1;
+    font-weight: 500;
+    @include mq-personal { font-size: 1.3rem;}
+  }
+
+  .part-two-the-CONTENT-all-hail-the-content-snippet {
+    float:left;
+    width:76%;
+    @include mq-personal { font-size: 1.5rem;}
+  }
+
+  .part-three-waiiiiit-a-sec {
+    padding-left:20%;
+    width:70%;
+    font-weight: 600;
+    @include mq-personal { font-size: 1.5rem;}
+  }
+}
 

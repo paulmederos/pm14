@@ -3,7 +3,14 @@
     Components
 =========================== */
 
+body {
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
 .what-even-is-a-container-for {
+  position: relative;
+  z-index:1;
   width:92%;
   max-width: 680px;
   margin:12rem auto;
@@ -122,6 +129,51 @@
     width:70%;
     font-weight: 600;
     @include mq-personal { font-size: 1.5rem;}
+  }
+}
+
+
+
+.a-post-oh-my {
+  position: relative;
+  background-color: #F07F65;
+  color: rgba(0,0,0,.8);
+  font-weight: 500;
+  font-size:1.8rem;
+
+  .constrain-me-please {
+    width:100%;
+    max-width: 740px;
+    margin:0 auto; 
+    padding: 12rem 7.2rem;
+    @include mq-personal { padding:4rem 2.1rem 6rem; }
+  }
+
+  h1 {
+    display: block;
+    font-size: 8.4rem;
+    color:white;
+    margin: 0 auto;
+    max-width: 80%;
+    padding-top:4rem;
+    text-align: center;
+
+    @include mq-tablet { font-size: 6rem; }
+    @include mq-personal { font-size: 4.2rem; max-width:100%; }
+  }
+
+  hr {
+    width:100%;
+    height:3px;
+    background-color:rgba(0,0,0,.2);
+    border:none;
+  }
+
+  a { 
+    color: rgba(0,0,0,1);
+    border-bottom: 1px dotted black;
+    text-decoration: none;
+    &:hover{ color: $color_hyperlink; border-bottom: 1px solid $color_hyperlink; }
   }
 }
 

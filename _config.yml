@@ -1,6 +1,5 @@
 # Site settings
-title: ""
-description: ""
+description: "Online home of one Paul Mederos."
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://paulmederos.com" # the base hostname & protocol for your site
 twitter_username: pvm

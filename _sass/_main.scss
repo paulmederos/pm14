@@ -8,24 +8,46 @@ body {
   background-size: cover;
 }
 
-.what-even-is-a-container-for {
-  position: relative;
-  z-index:1;
-  width:92%;
-  max-width: 680px;
-  margin:12rem auto;
-  border-radius: 23px;
+.window-content-pane-glass-context {
+  min-height:425px;
+  height:100%;
   overflow: hidden;
-  border:2px solid rgba(255,255,255,.95);
-  box-shadow: 0 2px 5px rgba(0,0,0,.25);
 
-  @include mq-personal {
-    width:100%;
-    margin: 0 auto;
-    border-radius: 0;
-    border:0;
-    font-size: 1.7rem;
+  @include mq-tablet {
+    height: auto;
+    overflow: auto;
   }
+}
+
+.panel {
+  left: 0;
+  height: 100%;
+  margin-right: -1px;
+  padding-right: 1px;
+  position: absolute;
+  top: 0;
+  width: 50%;
+
+  @include mq-tablet {
+    position: relative;
+    height: auto;
+    width:100%;
+  }
+}
+
+.panel--right {
+  height: 100%;
+  left: auto;
+  right: 0;
+}
+
+.panel__inner {
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  overflow-y:auto;
 }
 
 .this-is-where-I-say-hello {
@@ -51,7 +73,7 @@ body {
 }
 
 .all-of-my-writing-stuffs-go-here {
-  position: relative;
+  // position: relative;
   background-color: #6166EC;
 
   .protection-against-circle-plague { position: relative; z-index:2;}
@@ -76,8 +98,9 @@ body {
 
 .omg-so-many-posts {
   list-style: none;
-  margin:0;
-  padding:0 3rem 12rem;
+  margin:0 auto;
+  padding:0 3rem 12rem 6rem;
+  max-width: 80%;
 
   .post-title {
     display: block;
@@ -140,21 +163,15 @@ body {
   }
 }
 
-.the-illuminating-portfolio {
-  background-color: #00FDA9;
-  position: relative;
-
-  .constrain-me-please { display: block; position: relative; z-index: 2; }
-}
-
 .portfolio-button-yaaasssssss {
-  color:#F07F65;
-  border:3px solid #F07F65;
+  display: block;
+  color: white;
+  border:3px solid white;
   text-align: center;
   padding:1em 2em;
   border-radius: 16px;
   font-weight: 600;
-  margin: 0 auto;
+  margin: 6.4rem auto 0;
   display: block;
   @include transition;
 

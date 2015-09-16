@@ -2,9 +2,9 @@
 layout: default
 ---
 
-<main class="what-even-is-a-container-for">
-  <section class="this-is-where-I-say-hello">
-    <div class="constrain-me-please">
+<main class="window-content-pane-glass-context">
+  <section class="panel this-is-where-I-say-hello">
+    <div class="panel__inner constrain-me-please">
       <p>おはよう (hellllloooo!) You've stumbled (intentionally?) onto my site. I'm Paul. I love play, and making smiles happen.</p>
 
       <p>Day-to-day, I help fuel people who eat with purpose over at <a href="https://www.mypowersupply.com" target="_blank">Power Supply</a>, where I design + make things.</p>
@@ -19,10 +19,14 @@ layout: default
       <p>I also ran a design studio called <a href="http://enchant.co">Enchant</a>, helping small businesses and startups build authentic companies through software. Nowadays, it's what Brittany and I use to explore our fun projects.</p>
 
       <p>You can <a href="http://twitter.com/pvm" target="_blank">find me on Twitter</a> waxing on about things I care about (like design, psychology, startup-y topics, technology, and people. I love people.) For a glimspe into things that make *me* happy, you can <a href="http://instagram.com/pvmederos" target="_blank">catch my Instagram feed here</a>.</p>
+
+      <a href="http://paulmederos.herokuapp.com/" target="_blank" class="portfolio-button-yaaasssssss">Peruse my design portfolio</a>
     </div>
   </section>
-  <section class="all-of-my-writing-stuffs-go-here">
-    <div class="protection-against-circle-plague">
+
+
+  <section class="panel panel--right all-of-my-writing-stuffs-go-here">
+    <div class="panel__inner protection-against-circle-plague">
       <div class="constrain-me-please">
         <div class="offset">
           <h2>Writings</h2>
@@ -51,10 +55,91 @@ layout: default
     </div>
     <div class="the-circle-zombie-plague_SAVE_USSSSSSSS overlay"></div>
   </section>
-  <section class="the-illuminating-portfolio">
-    <div class="constrain-me-please">
-      <a href="http://paulmederos.herokuapp.com/" target="_blank" class="portfolio-button-yaaasssssss">Review my design portfolio</a>
-    </div>
-    <div class="star-power overlay"></div>
-  </section>
 </main>
+
+<script type="text/javascript">
+  var Page;
+  
+  window.localPosts = [
+    {% for post in site.posts %}
+      {
+        'title': '{{ post.title }}',
+        'url': '{{ post.url }}',
+        'date': "{{ post.date }}",
+        'teaser': '{{ post.teaser }}',
+      },
+    {% endfor %}
+  ];
+
+  window.remotePosts = [];
+  
+  $(function() {  
+    Page = {
+      loadRemotePosts: function() {
+        console.log("Loading remote posts from Medium.");
+        var remotePostsURL = 'https://medium.com/feed/@pvm';
+        $.ajax({
+          type: "GET",
+          url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent(remotePostsURL),
+          dataType: 'json',
+          error: function(){
+            console.log('Unable to load feed, Incorrect path or invalid feed');
+          },
+          success: function(xml){
+            postsFromJSON = xml.responseData.feed.entries;
+            Page.parseRemotePosts(postsFromJSON);
+            Page.populatePostsList();
+          }
+        });
+      },
+
+      parseRemotePosts: function(rawPostsFromRSS) {
+        console.log("Parsing remote posts...");
+        var parsedPosts = [];
+        $.each(rawPostsFromRSS, function(key, post) {
+          parsedPosts.push({
+            'title': post.title,
+            'url': post.link,
+            'date': Page.formatDate(post.publishedDate),
+            'teaser': post.contentSnippet,
+          });
+        });
+        window.remotePosts = parsedPosts;
+      },
+
+      populatePostsList: function() {
+        console.log("\r\n\r\nList populate the list.")
+        // First, clear current placeholders (local stuff), meh.
+        $('.omg-so-many-posts').html('');
+
+        // Now lets loop through remote posts and populate:
+        $.each(window.remotePosts, function(key, post) {
+          var postClass = 'post-' + key;
+          var postClassSelector = '.' + postClass;
+
+          $('.omg-so-many-posts')
+            .append('<li class="the-shizzzzzzz ' + postClass + '"></li>');
+          $(postClassSelector)
+            .append('<a href="' + post.url + '" class="post-title" target="_blank">' + post.title + '</a>');
+          $(postClassSelector)
+            .append('<div class="a-tale-of-two-parts"></div>');
+          $(postClassSelector + ' .a-tale-of-two-parts')
+            .append('<p class="part-one-the-date">' + post.date + '</p>');
+          $(postClassSelector + ' .a-tale-of-two-parts')
+            .append('<p class="part-two-the-CONTENT-all-hail-the-content-snippet">' + post.teaser + '</p>');
+          $(postClassSelector + ' .a-tale-of-two-parts')
+            .append('<a href="' + post.url + '" class="part-three-waiiiiit-a-sec" target="_blank">Keep on reading</a>');
+        });
+      },
+
+      formatDate: function(dateToFormat) {
+        // Date format from Medium RSS is:
+        // May 31st 2013, 7:04:38 pm
+        return moment(dateToFormat).format('MMM. GGGG');
+      }
+    }
+
+    Page.loadRemotePosts();
+  });
+
+</script>

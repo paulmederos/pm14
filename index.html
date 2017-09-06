@@ -7,7 +7,7 @@ layout: default
     <div class="panel__inner constrain-me-please">
       <p>おはよう (hellllloooo!) You've stumbled (intentionally?) onto my site. I'm Paul. I love play, and making smiles happen.</p>
 
-      <p>Day-to-day, I help fuel people who eat with purpose over at <a href="https://www.mypowersupply.com" target="_blank">Power Supply</a>, where I design + make things.</p>
+      <p>Day-to-day, I help fuel people who eat with purpose over at <a href="https://www.territoryfoods.com" target="_blank">Territory Foods</a>, where I lead product design + make things.</p>
 
       <p>I live in California 🌅💖. I help organize a design meetup called <a href="http://designershearth.com" target="_blank">Designer's Hearth</a> in the heart of Silicon Valley. My favorite part is sharing experiences betwixt other designers. We help each other grow.</p>
       <p>Sometimes, I write about the things we explore as a design community. Just recently, <a href="http://twitter.com/brim">Brittany</a> (my better half) and I wrote a guide together called <i><a href="http://portfolio.enchant.co" target="_blank">Crafting Your UX Portfolio: a weekend guide to getting it done</a></i>. If you work with screens + digital stuff, I bet you'll dig it.</p>
@@ -18,9 +18,9 @@ layout: default
 
       <p>I also ran a design studio called <a href="http://enchant.co">Enchant</a>, helping small businesses and startups build authentic companies through software. Nowadays, it's what Brittany and I use to explore our fun projects.</p>
 
-      <p>You can <a href="http://twitter.com/pvm" target="_blank">find me on Twitter</a> waxing on about things I care about (like design, psychology, startup-y topics, technology, and people. I love people.) For a glimspe into things that make *me* happy, you can <a href="http://instagram.com/pvmederos" target="_blank">catch my Instagram feed here</a>.</p>
+      <p>You can <a href="http://twitter.com/pvm" target="_blank">find me on Twitter</a> waxing on about things I care about (like design, psychology, startup-y topics, technology, and people. I love people.) For a glimspe into things that make *me* happy, you can <a href="http://instagram.com/pvmederos" target="_blank">catch my Instagram feed here</a>. I guess if you're the type to "Hi, I'd like to add you to my professional network on LinkedIn", jam that <a href="https://www.linkedin.com/in/pmederos/">here.</a></p>
 
-      <a href="http://paulmederos.herokuapp.com/" target="_blank" class="portfolio-button-yaaasssssss">Peruse my design portfolio</a>
+      <a href="http://v14.paulmederos.com/" target="_blank" class="portfolio-button-yaaasssssss">Peruse my design portfolio</a>
     </div>
   </section>
 
@@ -59,7 +59,7 @@ layout: default
 
 <script type="text/javascript">
   var Page;
-  
+
   window.localPosts = [
     {% for post in site.posts %}
       {
@@ -72,8 +72,8 @@ layout: default
   ];
 
   window.remotePosts = [];
-  
-  $(function() {  
+
+  $(function() {
     Page = {
       loadRemotePosts: function() {
         console.log("Loading remote posts from Medium.");
@@ -86,6 +86,7 @@ layout: default
             console.log('Unable to load feed, Incorrect path or invalid feed');
           },
           success: function(xml){
+            console.log(xml)
             postsFromJSON = xml.responseData.feed.entries;
             Page.parseRemotePosts(postsFromJSON);
             Page.populatePostsList();
